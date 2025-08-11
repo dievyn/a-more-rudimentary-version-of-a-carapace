@@ -48,7 +48,6 @@ static void	fill_doc(t_vars *va, t_list *list, char *limiter, int here_pipe[2])
 	char	*line[2];
 
 	signal(SIGINT, &end_heredoc);
-	g_signal = 0;
 	close_list(list);
 	free_list(list);
 	while (1)
@@ -76,6 +75,7 @@ int	heredoc(t_vars *va, t_list *list, char *limiter)
 
 	pipe(here_pipe);
 	list->fd_in = here_pipe[0];
+	g_signal = -2;
 	pid = fork();
 	if (pid == 0)
 		fill_doc(va, list, limiter, here_pipe);
