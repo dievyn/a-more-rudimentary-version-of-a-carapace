@@ -76,10 +76,8 @@ int	ft_strcmp(char *src, char *dest)
 
 	i = 0;
 	j = 0;
-	if (src == NULL || dest == NULL || ft_strlen(src) != ft_strlen(dest))
-	{
+	if (src == NULL || dest == NULL)
 		return (-1);
-	}
 	while (src[i])
 	{
 		if (src[i] == dest[i])

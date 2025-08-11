@@ -93,8 +93,7 @@ int	open_files(t_vars *va, t_list *list)
 			check = 42;
 		}
 		if (check == 0)
-			if (open_outfile(list) == -1)
-				close_list(list);
+			open_outfile(list);
 		list = list->next;
 	}
 	return (0);
